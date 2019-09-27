@@ -1,7 +1,13 @@
-var btnClickMe = document.getElementById("clickMe")
-var divTextHolder = document.getElementById("textHolder")
-btnClickMe.addEventListener("click", addTextToDiv);
+var btnHighlight = document.getElementById("clickMe");
+var inputText = document.getElementById("inputText");
+var codeContainer = document.getElementById("codeContainer");
+btnHighlight.addEventListener("click", addTextToDiv);
+
+//initialize highlight.js
+hljs.initHighlightingOnLoad();
 
 function addTextToDiv() {
-    divTextHolder.innerHTML = divTextHolder.innerHTML + "\nWe've added text."
+    var text = inputText.value;
+    codeContainer.innerHTML = text;
+    hljs.highlightBlock(codeContainer);
 }
